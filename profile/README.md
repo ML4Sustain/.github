@@ -1,4 +1,4 @@
-## Hi there ML4Sustain👋
+## Hi there👋
 
 - 📑 RS Paper Hub: https://rspaper.top/ 遥感论文社：打造属于遥感领域的专属论文集
 
