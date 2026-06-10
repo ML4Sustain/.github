@@ -5,9 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="ML4Sustain 汇集面向可持续发展的遥感资源、模型、数据集与论文集合。"
+      content="ML4Sustain 是连接机器学习、遥感与真实世界影响的开放社区，支持可持续发展目标"
     />
-    <title>ML4Sustain - 面向可持续发展的遥感智能资源</title>
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://raw.githubusercontent.com/ML4Sustain/rs-paper-hub/main/asset/logo.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="https://raw.githubusercontent.com/ML4Sustain/rs-paper-hub/main/asset/logo.png"
+    />
+    <title>ML4Sustain - 连接机器学习、遥感与可持续发展目标</title>
     <style>
       :root {
         --ink: #121417;
@@ -106,11 +115,8 @@
         width: 36px;
         height: 36px;
         border-radius: 8px;
-        display: grid;
-        place-items: center;
-        color: #0d2d24;
+        object-fit: cover;
         background: #dff7ec;
-        font-weight: 900;
       }
 
       .nav-links {
@@ -282,10 +288,6 @@
         padding: 82px 0;
       }
 
-      .section.compact {
-        padding-top: 42px;
-      }
-
       .section-heading {
         display: grid;
         grid-template-columns: minmax(0, 0.88fr) minmax(260px, 0.42fr);
@@ -307,34 +309,6 @@
         font-size: 17px;
       }
 
-      .platforms {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 14px;
-      }
-
-      .platform {
-        min-height: 132px;
-        padding: 22px;
-        border: 1px solid var(--line);
-        border-radius: 8px;
-        background: #fff;
-        box-shadow: 0 1px 0 rgba(18, 20, 23, 0.03);
-      }
-
-      .platform strong {
-        display: block;
-        margin-bottom: 8px;
-        font-size: 18px;
-      }
-
-      .platform span {
-        display: block;
-        color: var(--muted);
-        font-size: 14px;
-      }
-
-      .platform:hover,
       .project:hover {
         border-color: rgba(31, 143, 110, 0.55);
         box-shadow: var(--shadow);
@@ -589,7 +563,6 @@
           gap: 22px;
         }
 
-        .platforms,
         .project-grid,
         .metrics {
           grid-template-columns: 1fr;
@@ -624,11 +597,14 @@
     <header class="hero">
       <nav class="nav" aria-label="Primary navigation">
         <a class="brand" href="https://github.com/ML4Sustain" aria-label="ML4Sustain on GitHub">
-          <span class="brand-mark">M</span>
+          <img
+            class="brand-mark"
+            src="https://raw.githubusercontent.com/ML4Sustain/rs-paper-hub/main/asset/logo.png"
+            alt=""
+          />
           <span>ML4Sustain</span>
         </a>
         <div class="nav-links">
-          <a href="#platforms" data-i18n="nav.platforms">平台</a>
           <a href="#projects" data-i18n="nav.projects">项目</a>
           <a href="#focus" data-i18n="nav.focus">方向</a>
           <a href="https://github.com/ML4Sustain">GitHub</a>
@@ -640,10 +616,10 @@
       </nav>
 
       <div class="hero-inner">
-        <p class="eyebrow" data-i18n="hero.eyebrow">面向可持续发展的机器学习</p>
-        <h1 data-i18n="hero.title">为可持续地球建设遥感智能资源库。</h1>
+        <p class="eyebrow" data-i18n="hero.eyebrow">机器学习 × 遥感 × 可持续发展目标</p>
+        <h1 data-i18n="hero.title">连接遥感智能与真实世界影响的开放社区</h1>
         <p class="hero-copy" data-i18n="hero.copy">
-          ML4Sustain 汇集面向地球观测研究的模型、数据集、论文资源、演示系统和开源工具。
+          ML4Sustain 汇聚模型、数据集、论文、演示系统和开源项目，推动遥感技术服务可持续发展目标
         </p>
         <div class="actions" aria-label="Organization links">
           <a class="button primary" href="https://github.com/ML4Sustain">
@@ -655,7 +631,7 @@
                 />
               </svg>
             </span>
-            <span data-i18n="button.github">打开 GitHub</span>
+            <span data-i18n="button.github">GitHub</span>
           </a>
           <a class="button" href="https://huggingface.co/ML4Sustain">
             <span class="button-logo hf" aria-hidden="true">
@@ -680,35 +656,11 @@
     </header>
 
     <main>
-      <section class="section compact" id="platforms" aria-labelledby="platforms-title">
-        <div class="section-heading">
-          <h2 id="platforms-title" data-i18n="platforms.title">研究、代码与模型发布集中在一处。</h2>
-          <p data-i18n="platforms.copy">
-            组织将公开项目仓库、模型权重、数据集、演示应用和国内可访问镜像连接到研究者常用的平台。
-          </p>
-        </div>
-
-        <div class="platforms">
-          <a class="platform" href="https://github.com/ML4Sustain">
-            <strong>GitHub</strong>
-            <span data-i18n="platform.github">开源项目、代码、演示和研究工具。</span>
-          </a>
-          <a class="platform" href="https://huggingface.co/ML4Sustain">
-            <strong>Hugging Face</strong>
-            <span data-i18n="platform.hf">用于可复现机器学习研究的模型和数据集发布。</span>
-          </a>
-          <a class="platform" href="https://modelscope.cn/organization/ML4Sustain">
-            <strong>ModelScope</strong>
-            <span data-i18n="platform.modelscope">面向更广泛使用场景的魔搭镜像与在线演示。</span>
-          </a>
-        </div>
-      </section>
-
       <section class="section" id="projects" aria-labelledby="projects-title">
         <div class="section-heading">
-          <h2 id="projects-title" data-i18n="projects.title">精选项目</h2>
+          <h2 id="projects-title" data-i18n="projects.title">社区项目</h2>
           <p data-i18n="projects.copy">
-            覆盖论文检索、开放词表遥感检测、生成式地球观测和模型资产发布等 ML4Sustain 资源。
+            展示社区围绕论文组织、开放词表遥感检测、生成式地球观测和模型发布维护的项目
           </p>
         </div>
 
@@ -727,7 +679,7 @@
                 <span class="index">01</span>
               </div>
               <h3>RS Paper Hub</h3>
-              <p data-i18n="project.rs.copy">遥感论文社：为研究者追踪遥感领域进展而建设的专属论文集合。</p>
+              <p data-i18n="project.rs.copy">遥感论文社：为研究者追踪遥感领域进展而建设的专属论文集合</p>
               <div class="project-links">
                 <a class="tag website" href="https://rspaper.top/" data-i18n="tag.website">网站</a>
               </div>
@@ -748,7 +700,7 @@
                 <span class="index">02</span>
               </div>
               <h3>Beluga Seeker</h3>
-              <p data-i18n="project.beluga.copy">Beluga Seeker 的模型资源与源码仓库，可通过 ML4Sustain 模型渠道访问。</p>
+              <p data-i18n="project.beluga.copy">Beluga Seeker 的模型与源码仓库，可通过 ML4Sustain 模型渠道访问</p>
               <div class="project-links">
                 <a class="tag modelscope" href="https://www.modelscope.cn/models/ML4Sustain/beluga-seeker">ModelScope</a>
                 <a class="tag hf" href="https://huggingface.co/ML4Sustain/beluga-seeker">Hugging Face</a>
@@ -771,7 +723,7 @@
                 <span class="index">03</span>
               </div>
               <h3>LAE-DINO</h3>
-              <p data-i18n="project.lae.copy">Locate Anything on Earth 官方代码，面向遥感场景推进开放词表目标检测。</p>
+              <p data-i18n="project.lae.copy">Locate Anything on Earth 官方代码，面向遥感场景推进开放词表目标检测</p>
               <div class="project-links">
                 <a class="tag modelscope" href="https://modelscope.cn/studios/ML4Sustain/LAE-DINO" data-i18n="tag.demo">演示</a>
                 <a class="tag hf" href="https://huggingface.co/ML4Sustain/LAE-DINO" data-i18n="tag.model">模型</a>
@@ -796,7 +748,7 @@
                 <span class="index">04</span>
               </div>
               <h3>EarthSynth</h3>
-              <p data-i18n="project.earth.copy">基于扩散模型的生成式基础模型，用于高信息量地球观测合成与下游遥感研究。</p>
+              <p data-i18n="project.earth.copy">基于扩散模型的生成式基础模型，用于高信息量地球观测合成与下游遥感研究</p>
               <div class="project-links">
                 <a class="tag modelscope" href="https://www.modelscope.cn/studios/ML4Sustain/EarthSynth" data-i18n="tag.demo">演示</a>
                 <a class="tag hf" href="https://huggingface.co/jaychempan/EarthSynth" data-i18n="tag.model">模型</a>
@@ -812,21 +764,21 @@
       <section class="band" id="focus" aria-labelledby="focus-title">
         <div class="section">
           <div>
-            <p class="eyebrow" data-i18n="focus.eyebrow">研究方向</p>
-            <h2 id="focus-title" data-i18n="focus.title">面向地球智能的开放资源。</h2>
+            <p class="eyebrow" data-i18n="focus.eyebrow">社区方向</p>
+            <h2 id="focus-title" data-i18n="focus.title">让遥感研究走向真实世界影响</h2>
           </div>
           <div class="metrics">
             <div class="metric">
               <strong data-i18n="metric.models.title">模型</strong>
-              <span data-i18n="metric.models.copy">基础模型、检测器、演示应用与模型权重。</span>
+              <span data-i18n="metric.models.copy">基础模型、检测器、演示应用与模型权重</span>
             </div>
             <div class="metric">
               <strong data-i18n="metric.data.title">数据</strong>
-              <span data-i18n="metric.data.copy">面向遥感任务的大规模数据集与基准。</span>
+              <span data-i18n="metric.data.copy">面向遥感任务与可持续发展场景的数据集与基准</span>
             </div>
             <div class="metric">
               <strong data-i18n="metric.papers.title">论文</strong>
-              <span data-i18n="metric.papers.copy">用于跟踪可持续 AI 研究的精选资源。</span>
+              <span data-i18n="metric.papers.copy">帮助社区跟踪遥感、机器学习与 SDGs 交叉研究</span>
             </div>
           </div>
         </div>
@@ -835,7 +787,7 @@
 
     <footer>
       <div class="footer-inner">
-        <span data-i18n="footer.copy">ML4Sustain - 面向可持续发展的遥感智能资源。</span>
+        <span data-i18n="footer.copy">ML4Sustain - 连接机器学习、遥感与真实世界影响</span>
         <div class="footer-links">
           <a href="https://github.com/ML4Sustain">GitHub</a>
           <a href="https://huggingface.co/ML4Sustain">Hugging Face</a>
@@ -846,84 +798,72 @@
     <script>
       const copy = {
         zh: {
-          title: "ML4Sustain - 面向可持续发展的遥感智能资源",
-          description: "ML4Sustain 汇集面向可持续发展的遥感资源、模型、数据集与论文集合。",
-          "nav.platforms": "平台",
+          title: "ML4Sustain - 连接机器学习、遥感与可持续发展目标",
+          description: "ML4Sustain 是连接机器学习、遥感与真实世界影响的开放社区，支持可持续发展目标",
           "nav.projects": "项目",
           "nav.focus": "方向",
-          "hero.eyebrow": "面向可持续发展的机器学习",
-          "hero.title": "为可持续地球建设遥感智能资源库。",
-          "hero.copy": "ML4Sustain 汇集面向地球观测研究的模型、数据集、论文资源、演示系统和开源工具。",
-          "button.github": "打开 GitHub",
-          "platforms.title": "研究、代码与模型发布集中在一处。",
-          "platforms.copy": "组织将公开项目仓库、模型权重、数据集、演示应用和国内可访问镜像连接到研究者常用的平台。",
-          "platform.github": "开源项目、代码、演示和研究工具。",
-          "platform.hf": "用于可复现机器学习研究的模型和数据集发布。",
-          "platform.modelscope": "面向更广泛使用场景的魔搭镜像与在线演示。",
-          "projects.title": "精选项目",
-          "projects.copy": "覆盖论文检索、开放词表遥感检测、生成式地球观测和模型资产发布等 ML4Sustain 资源。",
-          "project.rs.kicker": "论文集合",
-          "project.rs.copy": "遥感论文社：为研究者追踪遥感领域进展而建设的专属论文集合。",
+          "hero.eyebrow": "机器学习 × 遥感 × 可持续发展目标",
+          "hero.title": "连接遥感智能与真实世界影响的开放社区",
+          "hero.copy": "ML4Sustain 汇聚模型、数据集、论文、演示系统和开源项目，推动遥感技术服务可持续发展目标",
+          "button.github": "GitHub",
+          "projects.title": "社区项目",
+          "projects.copy": "展示社区围绕论文组织、开放词表遥感检测、生成式地球观测和模型发布维护的项目",
+          "project.rs.kicker": "论文社区",
+          "project.rs.copy": "遥感论文社：为研究者追踪遥感领域进展而建设的论文社区",
           "project.beluga.kicker": "模型发布",
-          "project.beluga.copy": "Beluga Seeker 的模型资源与源码仓库，可通过 ML4Sustain 模型渠道访问。",
+          "project.beluga.copy": "Beluga Seeker 的模型与源码仓库，可通过 ML4Sustain 模型渠道访问",
           "project.lae.kicker": "开放词表检测",
-          "project.lae.copy": "Locate Anything on Earth 官方代码，面向遥感场景推进开放词表目标检测。",
+          "project.lae.copy": "Locate Anything on Earth 官方代码，面向遥感场景推进开放词表目标检测",
           "project.earth.kicker": "生成式地球观测",
-          "project.earth.copy": "基于扩散模型的生成式基础模型，用于高信息量地球观测合成与下游遥感研究。",
+          "project.earth.copy": "基于扩散模型的生成式基础模型，用于高信息量地球观测合成与下游遥感研究",
           "tag.website": "网站",
           "tag.demo": "演示",
           "tag.model": "模型",
           "tag.dataset": "数据集",
           "tag.paper": "论文",
-          "focus.eyebrow": "研究方向",
-          "focus.title": "面向地球智能的开放资源。",
+          "focus.eyebrow": "社区方向",
+          "focus.title": "让遥感研究走向真实世界影响",
           "metric.models.title": "模型",
-          "metric.models.copy": "基础模型、检测器、演示应用与模型权重。",
+          "metric.models.copy": "基础模型、检测器、演示应用与模型权重",
           "metric.data.title": "数据",
-          "metric.data.copy": "面向遥感任务的大规模数据集与基准。",
+          "metric.data.copy": "面向遥感任务与可持续发展场景的数据集与基准",
           "metric.papers.title": "论文",
-          "metric.papers.copy": "用于跟踪可持续 AI 研究的精选资源。",
-          "footer.copy": "ML4Sustain - 面向可持续发展的遥感智能资源。"
+          "metric.papers.copy": "帮助社区跟踪遥感、机器学习与 SDGs 交叉研究",
+          "footer.copy": "ML4Sustain - 连接机器学习、遥感与真实世界影响"
         },
         en: {
           title: "ML4Sustain - Remote Sensing for Sustainable Development",
-          description: "ML4Sustain collects remote sensing resources, models, datasets, and paper collections for sustainable development.",
-          "nav.platforms": "Platforms",
+          description: "ML4Sustain is a community bridging machine learning, remote sensing, and real-world impact to support the sustainable development goals",
           "nav.projects": "Projects",
           "nav.focus": "Focus",
-          "hero.eyebrow": "Machine learning for sustainability",
-          "hero.title": "Remote sensing resources for a more sustainable planet.",
-          "hero.copy": "ML4Sustain collects models, datasets, paper resources, demos, and open-source tools for Earth observation research.",
-          "button.github": "Open GitHub",
-          "platforms.title": "Research, code, and model releases in one place.",
-          "platforms.copy": "The organization keeps public project repositories, model checkpoints, datasets, demos, and China-friendly mirrors connected across the platforms researchers already use.",
-          "platform.github": "Open-source projects, code, demos, and research tools.",
-          "platform.hf": "Model and dataset releases for reproducible ML research.",
-          "platform.modelscope": "ModelScope mirrors and accessible demos for broader usage.",
+          "hero.eyebrow": "Machine learning x remote sensing x SDGs",
+          "hero.title": "A community bridging remote sensing intelligence and real-world impact",
+          "hero.copy": "ML4Sustain connects models, datasets, papers, demos, and open-source projects to support the sustainable development goals",
+          "button.github": "GitHub",
           "projects.title": "Featured projects",
-          "projects.copy": "A compact view of ML4Sustain resources spanning paper discovery, foundation detectors, generative Earth observation, and released model assets.",
+          "projects.copy": "A compact view of ML4Sustain projects spanning paper discovery, foundation detectors, generative Earth observation, and released model assets",
           "project.rs.kicker": "Paper collection",
-          "project.rs.copy": "A dedicated remote-sensing paper collection for researchers tracking the field.",
+          "project.rs.copy": "A dedicated remote-sensing paper community for researchers tracking the field",
           "project.beluga.kicker": "Model release",
-          "project.beluga.copy": "Model resources and source repository for Beluga Seeker, available through ML4Sustain model channels.",
+          "project.beluga.copy": "Model and source repository for Beluga Seeker, available through ML4Sustain model channels",
           "project.lae.kicker": "Open-vocabulary detection",
-          "project.lae.copy": "Official code for Locate Anything on Earth, advancing open-vocabulary object detection for remote sensing.",
+          "project.lae.copy": "Official code for Locate Anything on Earth, advancing open-vocabulary object detection for remote sensing",
           "project.earth.kicker": "Generative Earth observation",
-          "project.earth.copy": "Diffusion-based generative foundation model for informative Earth observation synthesis and downstream RSI research.",
+          "project.earth.copy": "Diffusion-based generative foundation model for informative Earth observation synthesis and downstream RSI research",
           "tag.website": "Website",
           "tag.demo": "Demo",
           "tag.model": "Model",
           "tag.dataset": "Dataset",
           "tag.paper": "Paper",
           "focus.eyebrow": "Research focus",
-          "focus.title": "Open resources for Earth intelligence.",
+          "focus.title": "An open community for Earth intelligence",
           "metric.models.title": "Models",
-          "metric.models.copy": "Foundation models, detectors, demos, and checkpoints.",
+          "metric.models.copy": "Foundation models, detectors, demos, and checkpoints",
           "metric.data.title": "Data",
-          "metric.data.copy": "Large-scale datasets and benchmarks for remote sensing tasks.",
+          "metric.data.copy": "Large-scale datasets and benchmarks for remote sensing tasks",
           "metric.papers.title": "Papers",
-          "metric.papers.copy": "Curated resources for following sustainable AI research.",
-          "footer.copy": "ML4Sustain - Remote sensing for sustainable development."
+          "metric.papers.copy": "Curated content for following sustainable AI research",
+          "footer.copy": "ML4Sustain - Remote sensing for sustainable development"
         }
       };
 
