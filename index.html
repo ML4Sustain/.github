@@ -1,13 +1,13 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh-CN">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="ML4Sustain collects remote sensing resources, models, datasets, and paper collections for sustainable development."
+      content="ML4Sustain 汇集面向可持续发展的遥感资源、模型、数据集与论文集合。"
     />
-    <title>ML4Sustain - Remote Sensing for Sustainable Development</title>
+    <title>ML4Sustain - 面向可持续发展的遥感智能资源</title>
     <style>
       :root {
         --ink: #121417;
@@ -125,6 +125,34 @@
         color: #fff;
       }
 
+      .language-toggle {
+        display: inline-flex;
+        align-items: center;
+        gap: 2px;
+        padding: 3px;
+        border: 1px solid rgba(255, 255, 255, 0.22);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      .lang-button {
+        min-width: 34px;
+        min-height: 28px;
+        border: 0;
+        border-radius: 6px;
+        color: rgba(255, 255, 255, 0.72);
+        background: transparent;
+        font: inherit;
+        font-size: 12px;
+        font-weight: 800;
+        cursor: pointer;
+      }
+
+      .lang-button[aria-pressed="true"] {
+        color: #0d2d24;
+        background: #dff7ec;
+      }
+
       .hero-inner {
         position: relative;
         z-index: 1;
@@ -225,18 +253,23 @@
         display: block;
       }
 
+      .button-logo img {
+        width: 20px;
+        height: 20px;
+        display: block;
+        object-fit: contain;
+      }
+
       .button-logo.github {
         color: #181717;
         background: #fff;
       }
 
       .button-logo.hf {
-        color: #4a3300;
         background: #ffd21e;
       }
 
       .button-logo.modelscope {
-        color: #fff;
         background: #624aff;
       }
 
@@ -310,13 +343,12 @@
 
       .project-grid {
         display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 16px;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 12px;
       }
 
       .project {
-        min-height: 276px;
-        padding: 12px 12px 26px;
+        padding: 10px 10px 18px;
         border: 1px solid var(--line);
         border-radius: 8px;
         background: #fff;
@@ -329,8 +361,8 @@
 
       .project-media {
         position: relative;
-        margin-bottom: 22px;
-        aspect-ratio: 16 / 9;
+        margin-bottom: 14px;
+        aspect-ratio: 1.55;
         overflow: hidden;
         border-radius: 6px;
         background: var(--field);
@@ -349,7 +381,7 @@
       }
 
       .project-body {
-        padding: 0 14px;
+        padding: 0 6px;
       }
 
       .project-kicker {
@@ -357,9 +389,9 @@
         align-items: center;
         justify-content: space-between;
         gap: 12px;
-        margin-bottom: 22px;
+        margin-bottom: 12px;
         color: var(--muted);
-        font-size: 13px;
+        font-size: 11px;
         font-weight: 760;
         text-transform: uppercase;
         letter-spacing: 0.08em;
@@ -371,15 +403,17 @@
       }
 
       h3 {
-        margin-bottom: 14px;
-        font-size: clamp(24px, 3vw, 34px);
-        line-height: 1.05;
+        margin-bottom: 10px;
+        font-size: clamp(21px, 2.3vw, 28px);
+        line-height: 1.08;
         letter-spacing: 0;
       }
 
       .project p {
-        min-height: 72px;
+        min-height: 92px;
+        margin-bottom: 14px;
         color: var(--muted);
+        font-size: 14px;
       }
 
       .tag {
@@ -387,11 +421,21 @@
         align-items: center;
         min-height: 30px;
         border-radius: 8px;
-        padding: 0 10px;
+        padding: 0 9px;
         color: var(--forest);
         background: var(--field);
-        font-size: 13px;
+        font-size: 12px;
         font-weight: 760;
+      }
+
+      @media (max-width: 1100px) {
+        .project-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .project p {
+          min-height: 64px;
+        }
       }
 
       .tag.github {
@@ -495,8 +539,13 @@
 
         .nav-links {
           width: 100%;
-          overflow-x: auto;
+          flex-wrap: wrap;
+          overflow-x: visible;
           padding-bottom: 4px;
+        }
+
+        .language-toggle {
+          margin-left: 0;
         }
 
         .hero-inner {
@@ -579,18 +628,22 @@
           <span>ML4Sustain</span>
         </a>
         <div class="nav-links">
-          <a href="#platforms">Platforms</a>
-          <a href="#projects">Projects</a>
-          <a href="#focus">Focus</a>
+          <a href="#platforms" data-i18n="nav.platforms">平台</a>
+          <a href="#projects" data-i18n="nav.projects">项目</a>
+          <a href="#focus" data-i18n="nav.focus">方向</a>
           <a href="https://github.com/ML4Sustain">GitHub</a>
+          <div class="language-toggle" aria-label="Language switcher">
+            <button class="lang-button" type="button" data-lang="zh" aria-pressed="true">中</button>
+            <button class="lang-button" type="button" data-lang="en" aria-pressed="false">EN</button>
+          </div>
         </div>
       </nav>
 
       <div class="hero-inner">
-        <p class="eyebrow">Machine learning for sustainability</p>
-        <h1>Remote sensing resources for a more sustainable planet.</h1>
-        <p class="hero-copy">
-          ML4Sustain collects models, datasets, paper resources, demos, and open-source tools for Earth observation research.
+        <p class="eyebrow" data-i18n="hero.eyebrow">面向可持续发展的机器学习</p>
+        <h1 data-i18n="hero.title">为可持续地球建设遥感智能资源库。</h1>
+        <p class="hero-copy" data-i18n="hero.copy">
+          ML4Sustain 汇集面向地球观测研究的模型、数据集、论文资源、演示系统和开源工具。
         </p>
         <div class="actions" aria-label="Organization links">
           <a class="button primary" href="https://github.com/ML4Sustain">
@@ -602,14 +655,24 @@
                 />
               </svg>
             </span>
-            Open GitHub
+            <span data-i18n="button.github">打开 GitHub</span>
           </a>
           <a class="button" href="https://huggingface.co/ML4Sustain">
-            <span class="button-logo hf" aria-hidden="true">HF</span>
+            <span class="button-logo hf" aria-hidden="true">
+              <img
+                src="https://huggingface.co/datasets/huggingface/brand-assets/resolve/main/hf-logo.svg"
+                alt=""
+              />
+            </span>
             Hugging Face
           </a>
           <a class="button" href="https://modelscope.cn/organization/ML4Sustain">
-            <span class="button-logo modelscope" aria-hidden="true">M</span>
+            <span class="button-logo modelscope" aria-hidden="true">
+              <img
+                src="https://img.alicdn.com/imgextra/i4/O1CN01fvt4it25rEZU4Gjso_!!6000000007579-2-tps-128-128.png"
+                alt=""
+              />
+            </span>
             ModelScope
           </a>
         </div>
@@ -619,35 +682,33 @@
     <main>
       <section class="section compact" id="platforms" aria-labelledby="platforms-title">
         <div class="section-heading">
-          <h2 id="platforms-title">Research, code, and model releases in one place.</h2>
-          <p>
-            The organization keeps public project repositories, model checkpoints, datasets, demos, and China-friendly mirrors
-            connected across the platforms researchers already use.
+          <h2 id="platforms-title" data-i18n="platforms.title">研究、代码与模型发布集中在一处。</h2>
+          <p data-i18n="platforms.copy">
+            组织将公开项目仓库、模型权重、数据集、演示应用和国内可访问镜像连接到研究者常用的平台。
           </p>
         </div>
 
         <div class="platforms">
           <a class="platform" href="https://github.com/ML4Sustain">
             <strong>GitHub</strong>
-            <span>Open-source projects, code, demos, and research tools.</span>
+            <span data-i18n="platform.github">开源项目、代码、演示和研究工具。</span>
           </a>
           <a class="platform" href="https://huggingface.co/ML4Sustain">
             <strong>Hugging Face</strong>
-            <span>Model and dataset releases for reproducible ML research.</span>
+            <span data-i18n="platform.hf">用于可复现机器学习研究的模型和数据集发布。</span>
           </a>
           <a class="platform" href="https://modelscope.cn/organization/ML4Sustain">
             <strong>ModelScope</strong>
-            <span>ModelScope mirrors and accessible demos for broader usage.</span>
+            <span data-i18n="platform.modelscope">面向更广泛使用场景的魔搭镜像与在线演示。</span>
           </a>
         </div>
       </section>
 
       <section class="section" id="projects" aria-labelledby="projects-title">
         <div class="section-heading">
-          <h2 id="projects-title">Featured projects</h2>
-          <p>
-            A compact view of ML4Sustain resources spanning paper discovery, foundation detectors, generative Earth observation,
-            and released model assets.
+          <h2 id="projects-title" data-i18n="projects.title">精选项目</h2>
+          <p data-i18n="projects.copy">
+            覆盖论文检索、开放词表遥感检测、生成式地球观测和模型资产发布等 ML4Sustain 资源。
           </p>
         </div>
 
@@ -662,13 +723,13 @@
             </div>
             <div class="project-body">
               <div class="project-kicker">
-                <span>Paper collection</span>
+                <span data-i18n="project.rs.kicker">论文集合</span>
                 <span class="index">01</span>
               </div>
               <h3>RS Paper Hub</h3>
-              <p>遥感论文社: a dedicated remote-sensing paper collection for researchers tracking the field.</p>
+              <p data-i18n="project.rs.copy">遥感论文社：为研究者追踪遥感领域进展而建设的专属论文集合。</p>
               <div class="project-links">
-                <a class="tag website" href="https://rspaper.top/">Website</a>
+                <a class="tag website" href="https://rspaper.top/" data-i18n="tag.website">网站</a>
               </div>
             </div>
           </article>
@@ -683,11 +744,11 @@
             </div>
             <div class="project-body">
               <div class="project-kicker">
-                <span>Model release</span>
+                <span data-i18n="project.beluga.kicker">模型发布</span>
                 <span class="index">02</span>
               </div>
               <h3>Beluga Seeker</h3>
-              <p>Model resources and source repository for Beluga Seeker, available through ML4Sustain model channels.</p>
+              <p data-i18n="project.beluga.copy">Beluga Seeker 的模型资源与源码仓库，可通过 ML4Sustain 模型渠道访问。</p>
               <div class="project-links">
                 <a class="tag modelscope" href="https://www.modelscope.cn/models/ML4Sustain/beluga-seeker">ModelScope</a>
                 <a class="tag hf" href="https://huggingface.co/ML4Sustain/beluga-seeker">Hugging Face</a>
@@ -706,16 +767,16 @@
             </div>
             <div class="project-body">
               <div class="project-kicker">
-                <span>Open-vocabulary detection</span>
+                <span data-i18n="project.lae.kicker">开放词表检测</span>
                 <span class="index">03</span>
               </div>
               <h3>LAE-DINO</h3>
-              <p>Official code for Locate Anything on Earth, advancing open-vocabulary object detection for remote sensing.</p>
+              <p data-i18n="project.lae.copy">Locate Anything on Earth 官方代码，面向遥感场景推进开放词表目标检测。</p>
               <div class="project-links">
-                <a class="tag modelscope" href="https://modelscope.cn/studios/ML4Sustain/LAE-DINO">Demo</a>
-                <a class="tag hf" href="https://huggingface.co/ML4Sustain/LAE-DINO">Model</a>
-                <a class="tag hf" href="https://huggingface.co/datasets/ML4Sustain/LAE-1M">Dataset</a>
-                <a class="tag paper" href="https://arxiv.org/abs/2408.09110">Paper</a>
+                <a class="tag modelscope" href="https://modelscope.cn/studios/ML4Sustain/LAE-DINO" data-i18n="tag.demo">演示</a>
+                <a class="tag hf" href="https://huggingface.co/ML4Sustain/LAE-DINO" data-i18n="tag.model">模型</a>
+                <a class="tag hf" href="https://huggingface.co/datasets/ML4Sustain/LAE-1M" data-i18n="tag.dataset">数据集</a>
+                <a class="tag paper" href="https://arxiv.org/abs/2408.09110" data-i18n="tag.paper">论文</a>
                 <a class="tag github" href="https://github.com/jaychempan/LAE-DINO">GitHub</a>
               </div>
             </div>
@@ -731,16 +792,16 @@
             </div>
             <div class="project-body">
               <div class="project-kicker">
-                <span>Generative Earth observation</span>
+                <span data-i18n="project.earth.kicker">生成式地球观测</span>
                 <span class="index">04</span>
               </div>
               <h3>EarthSynth</h3>
-              <p>Diffusion-based generative foundation model for informative Earth observation synthesis and downstream RSI research.</p>
+              <p data-i18n="project.earth.copy">基于扩散模型的生成式基础模型，用于高信息量地球观测合成与下游遥感研究。</p>
               <div class="project-links">
-                <a class="tag modelscope" href="https://www.modelscope.cn/studios/ML4Sustain/EarthSynth">Demo</a>
-                <a class="tag hf" href="https://huggingface.co/jaychempan/EarthSynth">Model</a>
-                <a class="tag hf" href="https://huggingface.co/datasets/jaychempan/EarthSynth-180K">Dataset</a>
-                <a class="tag paper" href="https://arxiv.org/abs/2505.12108">Paper</a>
+                <a class="tag modelscope" href="https://www.modelscope.cn/studios/ML4Sustain/EarthSynth" data-i18n="tag.demo">演示</a>
+                <a class="tag hf" href="https://huggingface.co/jaychempan/EarthSynth" data-i18n="tag.model">模型</a>
+                <a class="tag hf" href="https://huggingface.co/datasets/jaychempan/EarthSynth-180K" data-i18n="tag.dataset">数据集</a>
+                <a class="tag paper" href="https://arxiv.org/abs/2505.12108" data-i18n="tag.paper">论文</a>
                 <a class="tag github" href="https://github.com/jaychempan/EarthSynth">GitHub</a>
               </div>
             </div>
@@ -751,21 +812,21 @@
       <section class="band" id="focus" aria-labelledby="focus-title">
         <div class="section">
           <div>
-            <p class="eyebrow">Research focus</p>
-            <h2 id="focus-title">Open resources for Earth intelligence.</h2>
+            <p class="eyebrow" data-i18n="focus.eyebrow">研究方向</p>
+            <h2 id="focus-title" data-i18n="focus.title">面向地球智能的开放资源。</h2>
           </div>
           <div class="metrics">
             <div class="metric">
-              <strong>Models</strong>
-              <span>Foundation models, detectors, demos, and checkpoints.</span>
+              <strong data-i18n="metric.models.title">模型</strong>
+              <span data-i18n="metric.models.copy">基础模型、检测器、演示应用与模型权重。</span>
             </div>
             <div class="metric">
-              <strong>Data</strong>
-              <span>Large-scale datasets and benchmarks for remote sensing tasks.</span>
+              <strong data-i18n="metric.data.title">数据</strong>
+              <span data-i18n="metric.data.copy">面向遥感任务的大规模数据集与基准。</span>
             </div>
             <div class="metric">
-              <strong>Papers</strong>
-              <span>Curated resources for following sustainable AI research.</span>
+              <strong data-i18n="metric.papers.title">论文</strong>
+              <span data-i18n="metric.papers.copy">用于跟踪可持续 AI 研究的精选资源。</span>
             </div>
           </div>
         </div>
@@ -774,7 +835,7 @@
 
     <footer>
       <div class="footer-inner">
-        <span>ML4Sustain - Remote sensing for sustainable development.</span>
+        <span data-i18n="footer.copy">ML4Sustain - 面向可持续发展的遥感智能资源。</span>
         <div class="footer-links">
           <a href="https://github.com/ML4Sustain">GitHub</a>
           <a href="https://huggingface.co/ML4Sustain">Hugging Face</a>
@@ -782,5 +843,117 @@
         </div>
       </div>
     </footer>
+    <script>
+      const copy = {
+        zh: {
+          title: "ML4Sustain - 面向可持续发展的遥感智能资源",
+          description: "ML4Sustain 汇集面向可持续发展的遥感资源、模型、数据集与论文集合。",
+          "nav.platforms": "平台",
+          "nav.projects": "项目",
+          "nav.focus": "方向",
+          "hero.eyebrow": "面向可持续发展的机器学习",
+          "hero.title": "为可持续地球建设遥感智能资源库。",
+          "hero.copy": "ML4Sustain 汇集面向地球观测研究的模型、数据集、论文资源、演示系统和开源工具。",
+          "button.github": "打开 GitHub",
+          "platforms.title": "研究、代码与模型发布集中在一处。",
+          "platforms.copy": "组织将公开项目仓库、模型权重、数据集、演示应用和国内可访问镜像连接到研究者常用的平台。",
+          "platform.github": "开源项目、代码、演示和研究工具。",
+          "platform.hf": "用于可复现机器学习研究的模型和数据集发布。",
+          "platform.modelscope": "面向更广泛使用场景的魔搭镜像与在线演示。",
+          "projects.title": "精选项目",
+          "projects.copy": "覆盖论文检索、开放词表遥感检测、生成式地球观测和模型资产发布等 ML4Sustain 资源。",
+          "project.rs.kicker": "论文集合",
+          "project.rs.copy": "遥感论文社：为研究者追踪遥感领域进展而建设的专属论文集合。",
+          "project.beluga.kicker": "模型发布",
+          "project.beluga.copy": "Beluga Seeker 的模型资源与源码仓库，可通过 ML4Sustain 模型渠道访问。",
+          "project.lae.kicker": "开放词表检测",
+          "project.lae.copy": "Locate Anything on Earth 官方代码，面向遥感场景推进开放词表目标检测。",
+          "project.earth.kicker": "生成式地球观测",
+          "project.earth.copy": "基于扩散模型的生成式基础模型，用于高信息量地球观测合成与下游遥感研究。",
+          "tag.website": "网站",
+          "tag.demo": "演示",
+          "tag.model": "模型",
+          "tag.dataset": "数据集",
+          "tag.paper": "论文",
+          "focus.eyebrow": "研究方向",
+          "focus.title": "面向地球智能的开放资源。",
+          "metric.models.title": "模型",
+          "metric.models.copy": "基础模型、检测器、演示应用与模型权重。",
+          "metric.data.title": "数据",
+          "metric.data.copy": "面向遥感任务的大规模数据集与基准。",
+          "metric.papers.title": "论文",
+          "metric.papers.copy": "用于跟踪可持续 AI 研究的精选资源。",
+          "footer.copy": "ML4Sustain - 面向可持续发展的遥感智能资源。"
+        },
+        en: {
+          title: "ML4Sustain - Remote Sensing for Sustainable Development",
+          description: "ML4Sustain collects remote sensing resources, models, datasets, and paper collections for sustainable development.",
+          "nav.platforms": "Platforms",
+          "nav.projects": "Projects",
+          "nav.focus": "Focus",
+          "hero.eyebrow": "Machine learning for sustainability",
+          "hero.title": "Remote sensing resources for a more sustainable planet.",
+          "hero.copy": "ML4Sustain collects models, datasets, paper resources, demos, and open-source tools for Earth observation research.",
+          "button.github": "Open GitHub",
+          "platforms.title": "Research, code, and model releases in one place.",
+          "platforms.copy": "The organization keeps public project repositories, model checkpoints, datasets, demos, and China-friendly mirrors connected across the platforms researchers already use.",
+          "platform.github": "Open-source projects, code, demos, and research tools.",
+          "platform.hf": "Model and dataset releases for reproducible ML research.",
+          "platform.modelscope": "ModelScope mirrors and accessible demos for broader usage.",
+          "projects.title": "Featured projects",
+          "projects.copy": "A compact view of ML4Sustain resources spanning paper discovery, foundation detectors, generative Earth observation, and released model assets.",
+          "project.rs.kicker": "Paper collection",
+          "project.rs.copy": "A dedicated remote-sensing paper collection for researchers tracking the field.",
+          "project.beluga.kicker": "Model release",
+          "project.beluga.copy": "Model resources and source repository for Beluga Seeker, available through ML4Sustain model channels.",
+          "project.lae.kicker": "Open-vocabulary detection",
+          "project.lae.copy": "Official code for Locate Anything on Earth, advancing open-vocabulary object detection for remote sensing.",
+          "project.earth.kicker": "Generative Earth observation",
+          "project.earth.copy": "Diffusion-based generative foundation model for informative Earth observation synthesis and downstream RSI research.",
+          "tag.website": "Website",
+          "tag.demo": "Demo",
+          "tag.model": "Model",
+          "tag.dataset": "Dataset",
+          "tag.paper": "Paper",
+          "focus.eyebrow": "Research focus",
+          "focus.title": "Open resources for Earth intelligence.",
+          "metric.models.title": "Models",
+          "metric.models.copy": "Foundation models, detectors, demos, and checkpoints.",
+          "metric.data.title": "Data",
+          "metric.data.copy": "Large-scale datasets and benchmarks for remote sensing tasks.",
+          "metric.papers.title": "Papers",
+          "metric.papers.copy": "Curated resources for following sustainable AI research.",
+          "footer.copy": "ML4Sustain - Remote sensing for sustainable development."
+        }
+      };
+
+      const setLanguage = (lang) => {
+        const selected = copy[lang] ? lang : "zh";
+        document.documentElement.lang = selected === "zh" ? "zh-CN" : "en";
+        document.title = copy[selected].title;
+        document
+          .querySelector('meta[name="description"]')
+          .setAttribute("content", copy[selected].description);
+        document.querySelectorAll("[data-i18n]").forEach((node) => {
+          const key = node.getAttribute("data-i18n");
+          node.textContent = copy[selected][key] || node.textContent;
+        });
+        document.querySelectorAll(".lang-button").forEach((button) => {
+          button.setAttribute("aria-pressed", String(button.dataset.lang === selected));
+        });
+      };
+
+      document.querySelectorAll(".lang-button").forEach((button) => {
+        button.addEventListener("click", () => {
+          setLanguage(button.dataset.lang);
+          const nextUrl = new URL(window.location.href);
+          nextUrl.searchParams.set("lang", button.dataset.lang);
+          window.history.replaceState({}, "", nextUrl);
+        });
+      });
+
+      const initialLang = new URLSearchParams(window.location.search).get("lang");
+      setLanguage(initialLang === "en" ? "en" : "zh");
+    </script>
   </body>
 </html>
