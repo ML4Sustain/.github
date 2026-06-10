@@ -1,0 +1,786 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="ML4Sustain collects remote sensing resources, models, datasets, and paper collections for sustainable development."
+    />
+    <title>ML4Sustain - Remote Sensing for Sustainable Development</title>
+    <style>
+      :root {
+        --ink: #121417;
+        --muted: #5c6670;
+        --paper: #fbfcf8;
+        --line: #dfe6df;
+        --field: #eef4ec;
+        --forest: #124235;
+        --leaf: #1f8f6e;
+        --cobalt: #2458d6;
+        --amber: #e8a528;
+        --rose: #b31b1b;
+        --shadow: 0 18px 42px rgba(18, 66, 53, 0.14);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        color: var(--ink);
+        background: var(--paper);
+        font-family:
+          ui-sans-serif,
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          sans-serif;
+        line-height: 1.5;
+        overflow-x: hidden;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      .hero {
+        min-height: 78vh;
+        color: #fff;
+        background:
+          linear-gradient(105deg, rgba(7, 21, 18, 0.88), rgba(7, 21, 18, 0.52) 48%, rgba(7, 21, 18, 0.18)),
+          url("https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=1800&q=80")
+            center / cover;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        inset: auto 0 0;
+        height: 32%;
+        background: linear-gradient(0deg, var(--paper), rgba(251, 252, 248, 0));
+        pointer-events: none;
+      }
+
+      .nav,
+      .hero-inner,
+      .section,
+      .footer-inner {
+        width: min(1120px, calc(100% - 40px));
+        margin: 0 auto;
+      }
+
+      .nav {
+        min-height: 72px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        position: relative;
+        z-index: 2;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        font-weight: 800;
+        letter-spacing: 0;
+      }
+
+      .brand-mark {
+        width: 36px;
+        height: 36px;
+        border-radius: 8px;
+        display: grid;
+        place-items: center;
+        color: #0d2d24;
+        background: #dff7ec;
+        font-weight: 900;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        color: rgba(255, 255, 255, 0.82);
+        font-size: 14px;
+      }
+
+      .nav-links a:hover {
+        color: #fff;
+      }
+
+      .hero-inner {
+        position: relative;
+        z-index: 1;
+        padding: 92px 0 118px;
+      }
+
+      .eyebrow {
+        margin: 0 0 18px;
+        color: #b9ead6;
+        font-size: 13px;
+        font-weight: 800;
+        letter-spacing: 0.13em;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      h1 {
+        width: min(820px, 100%);
+        margin-bottom: 20px;
+        font-size: clamp(42px, 6.4vw, 82px);
+        line-height: 1;
+        letter-spacing: 0;
+      }
+
+      .hero-copy {
+        width: min(690px, 100%);
+        margin-bottom: 30px;
+        color: rgba(255, 255, 255, 0.84);
+        font-size: clamp(18px, 2.1vw, 24px);
+      }
+
+      .actions,
+      .badge-row,
+      .project-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .button {
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 9px;
+        border-radius: 8px;
+        padding: 0 16px;
+        border: 1px solid rgba(255, 255, 255, 0.28);
+        color: #fff;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        font-size: 14px;
+        font-weight: 750;
+        transition:
+          transform 180ms ease,
+          background 180ms ease,
+          border-color 180ms ease;
+      }
+
+      .button.primary {
+        border-color: #dff7ec;
+        color: #103a30;
+        background: #dff7ec;
+      }
+
+      .button:hover {
+        transform: translateY(-2px);
+        background: rgba(255, 255, 255, 0.18);
+        border-color: rgba(255, 255, 255, 0.48);
+      }
+
+      .button.primary:hover {
+        background: #fff;
+        border-color: #fff;
+      }
+
+      .button-logo {
+        width: 20px;
+        height: 20px;
+        display: inline-grid;
+        place-items: center;
+        flex: 0 0 auto;
+        border-radius: 6px;
+        font-size: 13px;
+        font-weight: 900;
+        line-height: 1;
+      }
+
+      .button-logo svg {
+        width: 18px;
+        height: 18px;
+        display: block;
+      }
+
+      .button-logo.github {
+        color: #181717;
+        background: #fff;
+      }
+
+      .button-logo.hf {
+        color: #4a3300;
+        background: #ffd21e;
+      }
+
+      .button-logo.modelscope {
+        color: #fff;
+        background: #624aff;
+      }
+
+      main {
+        position: relative;
+        z-index: 3;
+      }
+
+      .section {
+        padding: 82px 0;
+      }
+
+      .section.compact {
+        padding-top: 42px;
+      }
+
+      .section-heading {
+        display: grid;
+        grid-template-columns: minmax(0, 0.88fr) minmax(260px, 0.42fr);
+        gap: 40px;
+        align-items: end;
+        margin-bottom: 34px;
+      }
+
+      h2 {
+        margin-bottom: 0;
+        font-size: clamp(32px, 4vw, 58px);
+        line-height: 1;
+        letter-spacing: 0;
+      }
+
+      .section-heading p {
+        margin-bottom: 0;
+        color: var(--muted);
+        font-size: 17px;
+      }
+
+      .platforms {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .platform {
+        min-height: 132px;
+        padding: 22px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+        box-shadow: 0 1px 0 rgba(18, 20, 23, 0.03);
+      }
+
+      .platform strong {
+        display: block;
+        margin-bottom: 8px;
+        font-size: 18px;
+      }
+
+      .platform span {
+        display: block;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .platform:hover,
+      .project:hover {
+        border-color: rgba(31, 143, 110, 0.55);
+        box-shadow: var(--shadow);
+        transform: translateY(-3px);
+      }
+
+      .project-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .project {
+        min-height: 276px;
+        padding: 12px 12px 26px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+        overflow: hidden;
+        transition:
+          transform 180ms ease,
+          box-shadow 180ms ease,
+          border-color 180ms ease;
+      }
+
+      .project-media {
+        position: relative;
+        margin-bottom: 22px;
+        aspect-ratio: 16 / 9;
+        overflow: hidden;
+        border-radius: 6px;
+        background: var(--field);
+      }
+
+      .project-media img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: saturate(0.96) contrast(1.02);
+        transition: transform 220ms ease;
+      }
+
+      .project:hover .project-media img {
+        transform: scale(1.025);
+      }
+
+      .project-body {
+        padding: 0 14px;
+      }
+
+      .project-kicker {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 22px;
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 760;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+
+      .index {
+        color: var(--leaf);
+        font-feature-settings: "tnum";
+      }
+
+      h3 {
+        margin-bottom: 14px;
+        font-size: clamp(24px, 3vw, 34px);
+        line-height: 1.05;
+        letter-spacing: 0;
+      }
+
+      .project p {
+        min-height: 72px;
+        color: var(--muted);
+      }
+
+      .tag {
+        display: inline-flex;
+        align-items: center;
+        min-height: 30px;
+        border-radius: 8px;
+        padding: 0 10px;
+        color: var(--forest);
+        background: var(--field);
+        font-size: 13px;
+        font-weight: 760;
+      }
+
+      .tag.github {
+        color: #24292f;
+        background: #eef0f2;
+      }
+
+      .tag.hf {
+        color: #73520a;
+        background: #fff2bd;
+      }
+
+      .tag.modelscope {
+        color: #312184;
+        background: #ece8ff;
+      }
+
+      .tag.paper {
+        color: #7b1212;
+        background: #ffe6e6;
+      }
+
+      .tag.website {
+        color: #123f85;
+        background: #e6efff;
+      }
+
+      .band {
+        background: var(--forest);
+        color: #fff;
+      }
+
+      .band .section {
+        display: grid;
+        grid-template-columns: 0.72fr 1fr;
+        gap: 56px;
+        align-items: center;
+      }
+
+      .band p {
+        color: rgba(255, 255, 255, 0.72);
+      }
+
+      .metrics {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .metric {
+        min-height: 118px;
+        padding: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.06);
+      }
+
+      .metric strong {
+        display: block;
+        margin-bottom: 8px;
+        font-size: clamp(28px, 4vw, 44px);
+        line-height: 1;
+      }
+
+      .metric span {
+        color: rgba(255, 255, 255, 0.72);
+        font-size: 14px;
+      }
+
+      footer {
+        border-top: 1px solid var(--line);
+        background: #fff;
+      }
+
+      .footer-inner {
+        min-height: 94px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .footer-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+      }
+
+      .footer-links a:hover {
+        color: var(--forest);
+      }
+
+      @media (max-width: 860px) {
+        .nav {
+          align-items: flex-start;
+          flex-direction: column;
+          padding: 18px 0 0;
+        }
+
+        .nav-links {
+          width: 100%;
+          overflow-x: auto;
+          padding-bottom: 4px;
+        }
+
+        .hero-inner {
+          padding: 72px 0 98px;
+        }
+
+        h1 {
+          max-width: 11ch;
+          font-size: clamp(34px, 9.5vw, 44px);
+          line-height: 1.06;
+        }
+
+        .hero-copy {
+          width: min(100%, 29ch);
+          font-size: 18px;
+        }
+
+        .actions {
+          display: grid;
+          grid-template-columns: 1fr;
+          max-width: 260px;
+        }
+
+        .actions .button {
+          width: 100%;
+        }
+
+        h2 {
+          max-width: 13ch;
+          font-size: clamp(30px, 9vw, 42px);
+          line-height: 1.04;
+        }
+
+        .section-heading p {
+          max-width: 31ch;
+        }
+
+        .section-heading,
+        .band .section {
+          grid-template-columns: 1fr;
+          gap: 22px;
+        }
+
+        .platforms,
+        .project-grid,
+        .metrics {
+          grid-template-columns: 1fr;
+        }
+
+        .project p {
+          min-height: 0;
+        }
+
+        .footer-inner {
+          align-items: flex-start;
+          flex-direction: column;
+          justify-content: center;
+          padding: 24px 0;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+
+        *,
+        *::before,
+        *::after {
+          transition: none !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="hero">
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="brand" href="https://github.com/ML4Sustain" aria-label="ML4Sustain on GitHub">
+          <span class="brand-mark">M</span>
+          <span>ML4Sustain</span>
+        </a>
+        <div class="nav-links">
+          <a href="#platforms">Platforms</a>
+          <a href="#projects">Projects</a>
+          <a href="#focus">Focus</a>
+          <a href="https://github.com/ML4Sustain">GitHub</a>
+        </div>
+      </nav>
+
+      <div class="hero-inner">
+        <p class="eyebrow">Machine learning for sustainability</p>
+        <h1>Remote sensing resources for a more sustainable planet.</h1>
+        <p class="hero-copy">
+          ML4Sustain collects models, datasets, paper resources, demos, and open-source tools for Earth observation research.
+        </p>
+        <div class="actions" aria-label="Organization links">
+          <a class="button primary" href="https://github.com/ML4Sustain">
+            <span class="button-logo github" aria-hidden="true">
+              <svg viewBox="0 0 24 24" role="img">
+                <path
+                  fill="currentColor"
+                  d="M12 .5a12 12 0 0 0-3.8 23.39c.6.11.82-.26.82-.58v-2.24c-3.34.73-4.04-1.42-4.04-1.42-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.74.08-.74 1.2.09 1.84 1.24 1.84 1.24 1.08 1.83 2.82 1.3 3.51.99.11-.78.42-1.3.76-1.6-2.66-.31-5.46-1.34-5.46-5.94 0-1.31.47-2.38 1.24-3.22-.12-.31-.54-1.54.12-3.18 0 0 1.01-.32 3.3 1.23A11.4 11.4 0 0 1 12 6.27c1.02 0 2.05.14 3.01.4 2.29-1.55 3.3-1.23 3.3-1.23.66 1.64.24 2.87.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.8 5.63-5.48 5.93.43.38.82 1.1.82 2.23v3.31c0 .32.22.7.83.58A12 12 0 0 0 12 .5Z"
+                />
+              </svg>
+            </span>
+            Open GitHub
+          </a>
+          <a class="button" href="https://huggingface.co/ML4Sustain">
+            <span class="button-logo hf" aria-hidden="true">HF</span>
+            Hugging Face
+          </a>
+          <a class="button" href="https://modelscope.cn/organization/ML4Sustain">
+            <span class="button-logo modelscope" aria-hidden="true">M</span>
+            ModelScope
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="section compact" id="platforms" aria-labelledby="platforms-title">
+        <div class="section-heading">
+          <h2 id="platforms-title">Research, code, and model releases in one place.</h2>
+          <p>
+            The organization keeps public project repositories, model checkpoints, datasets, demos, and China-friendly mirrors
+            connected across the platforms researchers already use.
+          </p>
+        </div>
+
+        <div class="platforms">
+          <a class="platform" href="https://github.com/ML4Sustain">
+            <strong>GitHub</strong>
+            <span>Open-source projects, code, demos, and research tools.</span>
+          </a>
+          <a class="platform" href="https://huggingface.co/ML4Sustain">
+            <strong>Hugging Face</strong>
+            <span>Model and dataset releases for reproducible ML research.</span>
+          </a>
+          <a class="platform" href="https://modelscope.cn/organization/ML4Sustain">
+            <strong>ModelScope</strong>
+            <span>ModelScope mirrors and accessible demos for broader usage.</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="section" id="projects" aria-labelledby="projects-title">
+        <div class="section-heading">
+          <h2 id="projects-title">Featured projects</h2>
+          <p>
+            A compact view of ML4Sustain resources spanning paper discovery, foundation detectors, generative Earth observation,
+            and released model assets.
+          </p>
+        </div>
+
+        <div class="project-grid">
+          <article class="project">
+            <div class="project-media">
+              <img
+                src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=900&q=80"
+                alt="Satellite view of Earth for RS Paper Hub"
+                loading="lazy"
+              />
+            </div>
+            <div class="project-body">
+              <div class="project-kicker">
+                <span>Paper collection</span>
+                <span class="index">01</span>
+              </div>
+              <h3>RS Paper Hub</h3>
+              <p>遥感论文社: a dedicated remote-sensing paper collection for researchers tracking the field.</p>
+              <div class="project-links">
+                <a class="tag website" href="https://rspaper.top/">Website</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project-media">
+              <img
+                src="https://opengraph.githubassets.com/ml4sustain-beluga/VoyagerXvoyagerx/beluga-seeker"
+                alt="GitHub preview for Beluga Seeker"
+                loading="lazy"
+              />
+            </div>
+            <div class="project-body">
+              <div class="project-kicker">
+                <span>Model release</span>
+                <span class="index">02</span>
+              </div>
+              <h3>Beluga Seeker</h3>
+              <p>Model resources and source repository for Beluga Seeker, available through ML4Sustain model channels.</p>
+              <div class="project-links">
+                <a class="tag modelscope" href="https://www.modelscope.cn/models/ML4Sustain/beluga-seeker">ModelScope</a>
+                <a class="tag hf" href="https://huggingface.co/ML4Sustain/beluga-seeker">Hugging Face</a>
+                <a class="tag github" href="https://github.com/VoyagerXvoyagerx/beluga-seeker">GitHub</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project-media">
+              <img
+                src="https://opengraph.githubassets.com/ml4sustain-lae-dino/jaychempan/LAE-DINO"
+                alt="GitHub preview for LAE-DINO"
+                loading="lazy"
+              />
+            </div>
+            <div class="project-body">
+              <div class="project-kicker">
+                <span>Open-vocabulary detection</span>
+                <span class="index">03</span>
+              </div>
+              <h3>LAE-DINO</h3>
+              <p>Official code for Locate Anything on Earth, advancing open-vocabulary object detection for remote sensing.</p>
+              <div class="project-links">
+                <a class="tag modelscope" href="https://modelscope.cn/studios/ML4Sustain/LAE-DINO">Demo</a>
+                <a class="tag hf" href="https://huggingface.co/ML4Sustain/LAE-DINO">Model</a>
+                <a class="tag hf" href="https://huggingface.co/datasets/ML4Sustain/LAE-1M">Dataset</a>
+                <a class="tag paper" href="https://arxiv.org/abs/2408.09110">Paper</a>
+                <a class="tag github" href="https://github.com/jaychempan/LAE-DINO">GitHub</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project-media">
+              <img
+                src="https://opengraph.githubassets.com/ml4sustain-earthsynth/jaychempan/EarthSynth"
+                alt="GitHub preview for EarthSynth"
+                loading="lazy"
+              />
+            </div>
+            <div class="project-body">
+              <div class="project-kicker">
+                <span>Generative Earth observation</span>
+                <span class="index">04</span>
+              </div>
+              <h3>EarthSynth</h3>
+              <p>Diffusion-based generative foundation model for informative Earth observation synthesis and downstream RSI research.</p>
+              <div class="project-links">
+                <a class="tag modelscope" href="https://www.modelscope.cn/studios/ML4Sustain/EarthSynth">Demo</a>
+                <a class="tag hf" href="https://huggingface.co/jaychempan/EarthSynth">Model</a>
+                <a class="tag hf" href="https://huggingface.co/datasets/jaychempan/EarthSynth-180K">Dataset</a>
+                <a class="tag paper" href="https://arxiv.org/abs/2505.12108">Paper</a>
+                <a class="tag github" href="https://github.com/jaychempan/EarthSynth">GitHub</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="band" id="focus" aria-labelledby="focus-title">
+        <div class="section">
+          <div>
+            <p class="eyebrow">Research focus</p>
+            <h2 id="focus-title">Open resources for Earth intelligence.</h2>
+          </div>
+          <div class="metrics">
+            <div class="metric">
+              <strong>Models</strong>
+              <span>Foundation models, detectors, demos, and checkpoints.</span>
+            </div>
+            <div class="metric">
+              <strong>Data</strong>
+              <span>Large-scale datasets and benchmarks for remote sensing tasks.</span>
+            </div>
+            <div class="metric">
+              <strong>Papers</strong>
+              <span>Curated resources for following sustainable AI research.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-inner">
+        <span>ML4Sustain - Remote sensing for sustainable development.</span>
+        <div class="footer-links">
+          <a href="https://github.com/ML4Sustain">GitHub</a>
+          <a href="https://huggingface.co/ML4Sustain">Hugging Face</a>
+          <a href="https://modelscope.cn/organization/ML4Sustain">ModelScope</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
